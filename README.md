@@ -8,6 +8,9 @@ This repository is under construction...
 
 ![Alt Text](https://media.tenor.com/images/8b94b2d480baf98564965767f2e94b23/tenor.gif)
 
+But! Here's a tease of what's to come
+
+![Alt Text](https://github.com/adamspierer/z_stacker/blob/dev/outputs/test.tiff)
 
 <h3>Requirements</h3>
 
