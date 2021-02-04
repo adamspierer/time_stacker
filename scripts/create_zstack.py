@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-
-
 from sys import exit
 from os import path
 import argparse
