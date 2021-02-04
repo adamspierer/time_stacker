@@ -19,6 +19,10 @@ General programs:
 
 	- FFmpeg        [4.3.1 ]
 
+	--> Download from here: https://ffmpeg.org/download.html
+	--> May require the use of Homebrew: https://docs.brew.sh/Installation
+	--> Install ffmpeg with Homebrew: https://formulae.brew.sh/formula/ffmpeg
+
 Python modules:
 
     - argparse      [1.1   ]
