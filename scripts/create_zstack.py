@@ -224,7 +224,7 @@ def visualize_stack(stack, save_file):
     print("6 | 6 : Visualizing z-stack")
     imshow(stack,cmap=cm.gray)
     axis('off')
-    savefig(save_file, dpi = 150)
+    savefig(save_file, dpi = 100)
     print(save_file)
     return 
 
