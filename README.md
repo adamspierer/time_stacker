@@ -25,9 +25,9 @@ Python modules:
     - matplotlib    [3.1.3 ]
     - numpy         [1.18.1]
     - pip           [20.0.2]
-    - sys			[standard]
-    - os			[standard]
-	- datetime		[standard]
+    - sys		[standard]
+    - os		[standard]
+	- datetime	[standard]
 
 NOTE: z_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the `ffmpeg` in later Python versions, but may work.
 
