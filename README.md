@@ -12,9 +12,11 @@ This repository is under construction...
 <h3>Requirements</h3>
 
 General programs:
+
 	- FFmpeg        [4.3.1 ]
 
 Python modules:
+
     - argparse      [1.1   ]
     - ffmpeg-python [0.2.0 ]
     - matplotlib    [3.1.3 ]
@@ -24,7 +26,7 @@ Python modules:
     - os			[standard]
 	- datetime		[standard]
 
-NOTE: z_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the ffmpeg in later Python versions, but may work.
+NOTE: z_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the `ffmpeg` in later Python versions, but may work.
 
 <h3>Installing</h3>
 
@@ -81,14 +83,14 @@ Make sure the z\_stacker scripts are downloaded and in a folder on your computer
 
 	cd <path_to_z_stacker>
 
-Type and run:
+Type and run (placeholder to generate the current `./outputs/test.tiff` file):
 
 	python ./scripts/create_zstack.py --input_file ./examples/drosophila.mov --output_file ./outputs/test.tiff --method min --interval 20
 
+
 <h3>Code Structure/Overview</h3>
 
-`create_zstack.py` - 
-
+`create_zstack.py` - Creates a z-stack from a video
 
 We encourage you to to visit our [Tutorial page]('https://github.com/adamspierer/z_stack_/blob/master/TUTORIAL.md') for a more thorough walk-through, description, and various caveats.
 
@@ -118,4 +120,4 @@ This work is licensed under the MIT license.
 
 <h3>Authors</h3>
 
-Written by [Adam Spierer](https://github.com/adamspierer) and [Lei Zhuo](https://github.com/ctzhu/) with special thanks to Brown University's [Computational Biology Core](https://github.com/compbiocore/) for assistance with code review.
+Written by [Adam Spierer](https://github.com/adamspierer).
