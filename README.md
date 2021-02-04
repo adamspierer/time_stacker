@@ -10,7 +10,8 @@ This repository is under construction...
 
 But! Here's a tease of what's to come
 
-![Alt Text](https://github.com/adamspierer/z_stacker/blob/dev/outputs/test.tiff)
+![Alt Text](https://github.com/adamspierer/z_stacker/blob/dev/outputs/test.png)
+
 
 <h3>Requirements</h3>
 
