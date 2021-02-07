@@ -1,19 +1,14 @@
-<h1>z_stacker</h1>
+<h1>time_stacker</h1>
 
 <h3>Overview</h3>
 
-`z_stacker` is designed to create a single image showcasing the movement of an object in a standardized video. In order for this program to work best, we recommend the object is darker than the background and the background does not move.
+`time_stacker` creates a time-stack image show from a video or animated gif. This type of picture is best used to showcase the passage of time where the background is static and the focal object moves in a non-overlapping trajectory (e.g. ball bouncing down a hallway).
 
-This program was designed to fill the void of Python-based programs that can generate a z-stack image, as well as address a personal issue I encountered trying to create z-stack images with a subset of images. and to as an alternative to the traditional z-stack, which collapses all frames in a sequence down into a single image. Instead of 
+![Alt Text](https://github.com/adamspierer/time_stacker/blob/main/outputs/flight_example.png)
 
-This repository is under construction...
+<h3>Motivation</h3>
 
-![Alt Text](https://media.tenor.com/images/8b94b2d480baf98564965767f2e94b23/tenor.gif)
-
-But! Here's a tease of what's to come
-
-![Alt Text](https://github.com/adamspierer/z_stacker/blob/dev/outputs/test.png)
-
+This program was designed to fill the void of Python-based programs that can generate a time-stack image, as well as address a personal issue I encountered trying to create time-stack images with a subset of images/frames in a video.
 
 <h3>Requirements</h3>
 
@@ -36,7 +31,7 @@ Python modules:
     - os		[standard]
 	- datetime	[standard]
 
-NOTE: z_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the `ffmpeg` in later Python versions, but may work.
+NOTE: time_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the `ffmpeg` in later Python versions, but may work.
 
 <h3>Installing</h3>
 
@@ -72,9 +67,9 @@ For more details about creating a conda virtual environment, see [here](https://
 **Cloning the git repository**:
 
 	cd <folder of interest>
-	git clone https://github.com/adamspierer/z_stacker_.git
+	git clone https://github.com/adamspierer/time_stacker_.git
 	
-NOTE: As of now, the platform itself is <u>not</u> callable as a module and these steps merely download the dependencies. The script files must be directly referenced when running the program. See our [tutorial](https://github.com/adamspierer/z_stacker/blob/master/TUTORIAL.md) for usage instructions.
+NOTE: As of now, the platform itself is <u>not</u> callable as a module and these steps merely download the dependencies. The script files must be directly referenced when running the program. See our [tutorial](https://github.com/adamspierer/time_stacker/blob/master/TUTORIAL.md) for usage instructions.
 
 
 <h3>Examples</h3>
@@ -87,11 +82,11 @@ NOTE: As of now, the platform itself is <u>not</u> callable as a module and thes
 
 <h3>Usage</h3>
 
-The following is a general overview of the program's usage. For detailed instructions, please see our [tutorial page](https://github.com/adamspierer/z_stacker/blob/master/TUTORIAL.md).
+The following is a general overview of the program's usage. For detailed instructions, please see our [tutorial page](https://github.com/adamspierer/time_stacker/blob/master/TUTORIAL.md).
 
 Make sure the z\_stacker scripts are downloaded and in a folder on your computer. Navigate to the `z\_stacker` directory and type:
 
-	cd <path_to_z_stacker>
+	cd <path_to_time_stacker>
 
 Type and run (placeholder to generate the current `./outputs/test.tiff` file):
 
