@@ -4,7 +4,7 @@
 
 `time_stacker` creates a time-stack image show from a video or animated gif. This type of picture is best used to showcase the passage of time where the background is static and the focal object moves in a non-overlapping trajectory (e.g. ball bouncing down a hallway).
 
-![Alt Text](https://github.com/adamspierer/time_stacker/blob/main/outputs/flight_example.png)
+![Alt Text](https://github.com/adamspierer/time_stacker/blob/dev/outputs/flight_example.png)
 
 <h3>Motivation</h3>
 
