@@ -69,7 +69,7 @@ After following the installation instructions on README.md, navigate to the `tim
 
 Assuming a series of images with a common prefix (`img_`), images named with three digits (`000`,`001`...`999`), and a common suffix (`.png`):
 
-	ffmpeg -i <path_to_image_folder>/img\_%03d.png ./example/output.mov
+	ffmpeg -i <path_to_image_folder>/img_%03d.png ./example/output.mov
 
 A video file (`output.mov`) will be created in `time_stacker`'s example folder. The video's frame rate is not important, though there may be discrepancies in the video quality depending on the end type of video you try converting. `FFmpeg` is well documented and can be used to create videos and animated gifs (among other things) with relative ease. 
 
