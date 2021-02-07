@@ -7,7 +7,7 @@ import numpy as np
 import ffmpeg
 from datetime import datetime
 from matplotlib import cm
-from matplotlib.pyplot import imshow, figure, savefig, axis
+from matplotlib.pyplot import imshow, figure, savefig, axis, tight_layout
 gray = cm.gray
 
 version = 1.0
@@ -18,6 +18,7 @@ version = 1.0
 # - Alternative processing modes (min, max, stdev, etc.)
 # - Finalize documentation
 # - Create a tutorial
+# - Custom list of frames to use
 
 
 def define_argument_parser():
@@ -30,7 +31,7 @@ def define_argument_parser():
 	  args (list): list of arguments passed to program
 	'''
 	parser = argparse.ArgumentParser(prog='z_stacker',
-									description='Visualizes an object's motion from a video to an image',
+									description="Visualizes an object's motion from a video to an image",
 									usage='%(prog)s [options] path',
 									epilog='For documentation and a tutorial, see https://github.com/adamspierer/z_stacker',
 									allow_abbrev=False)
@@ -50,7 +51,7 @@ def define_argument_parser():
 						type=str, 
 						required=False,
 						choices=['min','max'], 
-						help='Method to construct z-stack. Must be either 'min' or 'max'')
+						help="Method to construct z-stack. Must be either 'min' or 'max'")
 
 	## Debug printing
 	parser.add_argument('--interval', 
@@ -70,7 +71,7 @@ def define_argument_parser():
 						default=False, 
 						action='store_true', 
 						required=False, 
-						help='Method to construct z-stack. Must be either 'min' or 'max'')
+						help='Makes final image grayscale')
 
 	## Specify output file type
 	parser.add_argument('--dpi', 
@@ -241,7 +242,8 @@ class stacker(object):
 		print('6 | 6 : Visualizing z-stack')
 		imshow(stack,cmap=cm.gray)
 		axis('off')
-		savefig(save_file, dpi = dpi)
+		tight_layout()
+		savefig(save_file, dpi = dpi, bbox_inches='tight')
 		return 
 
 
