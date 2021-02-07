@@ -6,6 +6,7 @@
 
 <p align="center">
 <img src="https://github.com/adamspierer/time_stacker/blob/main/outputs/flight_example.png" width="333" height="424">
+Time stack of flies dropping into a flight column
 </p>
 
 <h3>Motivation</h3>
@@ -102,7 +103,7 @@ We encourage you to to visit our [Tutorial page]('https://github.com/adamspierer
 
 <h3>Version releases</h3>
 
-1.0 - Alpha release - Script works but the innards are not polished.
+1.0 - Program works with some necessary frills.
 
 <h3>Deployment</h3>
 
