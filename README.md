@@ -5,13 +5,10 @@
 `time_stacker` creates a time-stack image show from a video or animated gif. This type of picture is best used to showcase the passage of time where the background is static and the focal object moves in a non-overlapping trajectory (e.g. ball bouncing down a hallway).
 
 <p align="center">
-<img src="https://github.com/adamspierer/time_stacker/blob/main/outputs/flight_example.png" width="333" height="424">
+<img src="https://github.com/adamspierer/time_stacker/blob/main/output/flight_example.png" width="333" height="424">
 Time stack of flies dropping into a flight column
 </p>
 
-<h3>Motivation</h3>
-
-This program was designed to fill the void of Python-based programs that can generate a time-stack image, as well as address a personal issue I encountered trying to create time-stack images with a subset of images/frames in a video for a publication. May my effort save you time.
 
 <h3>Requirements</h3>
 
@@ -90,9 +87,9 @@ Make sure the time\_stacker scripts are downloaded and in a folder on your compu
 
 	cd <path_to_time_stacker>
 
-Type and run (placeholder to generate the current `./outputs/test.tiff` file):
+Type and run (placeholder to generate the current `./output/test.tiff` file):
 
-	python ./scripts/time_stacker.py --input_file ./examples/drosophila.mov --output_file ./outputs/test.tiff --method min --interval 20
+	python ./script/time_stacker.py --input_file ./example/drosophila.mov --output_file ./output/test.tiff --method min --interval 20
 
 
 <h3>Code Structure/Overview</h3>
