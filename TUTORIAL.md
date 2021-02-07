@@ -59,6 +59,8 @@ Time stack of flies dropping into a flight column
 	4. `--interval` - Use every <n-th/interval> frame for final image (default is 1). Higher interval numbers decrease processing time.
 	5. `--grayscale` - Option to output image in grayscale. This option significantly increases processing time
 	6. `--dpi` - Resolution to save final image in drops per inch (dpi)
+	
+	--> `--help` - Provides help text in the command line to aid in what inputs are permissible
 
 
 <h3>Starting from a stack of images</h3>
