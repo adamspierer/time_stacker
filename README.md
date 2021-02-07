@@ -18,9 +18,9 @@ General programs:
 
 	- FFmpeg        [4.3.1 ]
 
-	--> Download from here: https://ffmpeg.org/download.html
-	--> May require the use of Homebrew: https://docs.brew.sh/Installation
-	--> Install ffmpeg with Homebrew: https://formulae.brew.sh/formula/ffmpeg
+	--> Download FFmpeg: https://ffmpeg.org/download.html
+	--> Download and install Homebrew: https://docs.brew.sh/Installation
+	--> Install ffmpeg using Homebrew: https://formulae.brew.sh/formula/ffmpeg
 
 Python modules:
 
@@ -33,9 +33,7 @@ Python modules:
     - os		[standard]
 	- datetime	[standard]
 
-NOTE: time_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the `ffmpeg` in later Python versions, but may work.
-
-NOTE: These are the package versions I know work, though future versions should work as well.
+NOTE: time_stacker is tested in a Python3.6 virtual environment. I noticed issues with `ffmpeg` in later Python versions with packages used in a separate program, but not all of those are used here. All this to say, the versioning of these packages should not really affect `time\_stacker`'s performance.
 
 <h3>Installing</h3>
 
@@ -64,7 +62,6 @@ I recommend running this package in an Anaconda-based virtual environment. Anaco
 	source activate python36
 
 For more details about creating a conda virtual environment, see [here](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/). Once the environment is set up and activated, we can install the dependencies listed in the `Requirements` section above.
-
 
 **Download the script files** (can be done with `git clone` if user is familiar with `git` or by directly downloading the `.py` files into a single folder)
 
