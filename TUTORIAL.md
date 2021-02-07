@@ -43,7 +43,6 @@ After following the installation instructions on README.md, navigate to the `tim
 
 <p align="center">
 <img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila_interval_10_grayscale.png" width="256" height="192">
-Time stack of flies dropping into a flight column
 </p>
 
 

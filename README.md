@@ -6,7 +6,6 @@
 
 <p align="center">
 <img src="https://github.com/adamspierer/time_stacker/blob/main/output/flight_example.png" width="333" height="424">
-Time stack of flies dropping into a flight column
 </p>
 
 
