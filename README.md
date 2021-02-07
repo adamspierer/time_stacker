@@ -116,7 +116,7 @@ I plan to release maintenance updates as needed, though am unlikely to modify th
 
 <h3>Citing this work</h3>
 
-This script was written for generating figures for the following [manuscript](https://doi.org/10.1101/2020.05.27.118604)
+This script was written for generating figures for the following [manuscript](https://doi.org/10.1101/2020.05.27.118604).
 
 <h3>License</h3>
 
