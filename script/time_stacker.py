@@ -13,14 +13,6 @@ gray = cm.gray
 version = 1.0
 
 
-# To do:
-# - Option for inputting as a folder of images
-# - Alternative processing modes (min, max, stdev, etc.)
-# - Finalize documentation
-# - Create a tutorial
-# - Custom list of frames to use
-
-
 def define_argument_parser():
 	'''Parses out command line arguments
 	----
@@ -30,10 +22,10 @@ def define_argument_parser():
 	Returns:
 	  args (list): list of arguments passed to program
 	'''
-	parser = argparse.ArgumentParser(prog='z_stacker',
-									description="Visualizes an object's motion from a video to an image",
+	parser = argparse.ArgumentParser(prog='time_stacker',
+									description="Create time-stack images from movies or animated gifs!",
 									usage='%(prog)s [options] path',
-									epilog='For documentation and a tutorial, see https://github.com/adamspierer/z_stacker',
+									epilog='For documentation and a tutorial, see https://github.com/adamspierer/time_stacker',
 									allow_abbrev=False)
 	## Version information
 	parser.version = version ## Program version
@@ -45,26 +37,27 @@ def define_argument_parser():
 						type=str, 
 						required=True, 
 						help='Path to input file')
-						
-	## Specify z-stack method
-	parser.add_argument('--method', 
-						type=str, 
-						required=False,
-						choices=['min','max'], 
-						help="Method to construct z-stack. Must be either 'min' or 'max'")
-
-	## Debug printing
-	parser.add_argument('--interval', 
-						type=int, 
-						required=True, 
-						default=False, 
-						help='Number of frames to skip between frames to consider.')
 
 	## Specify save path
 	parser.add_argument('--output_file', 
 						type=str, 
 						required=True, 
 						help='Path to output file')
+																		
+	## Specify z-stack method
+	parser.add_argument('--method', 
+						type=str,
+						default='min', 
+						required=False,
+						choices=['min','max'], 
+						help="Method to construct z-stack. Must be either 'min' or 'max'")
+
+	## Specify interval value
+	parser.add_argument('--interval', 
+						type=int, 
+						required=False, 
+						default=1, 
+						help='Number of frames to skip between frames to consider.')
 
 	## Specify z-stack method
 	parser.add_argument('--grayscale', 
@@ -111,8 +104,8 @@ def startup():
 
 		## Lines to print
 		line0 = '#'*line_length
-		line1 = '## z_stacker v.%s ' % str(version)
-		line2 = '## Please cite: https://github.com/adamspierer/z_stacker '
+		line1 = '## time_stacker v.%s ' % str(version)
+		line2 = '## Please cite: https://github.com/adamspierer/time_stacker '
 		line3 = '## Beginning program @ %s '  % str(now)
 		line4 = line0
 	
@@ -132,6 +125,7 @@ class stacker(object):
 		self.dpi = arg.dpi
 		self.grayscale = arg.grayscale
 
+		
 	def video_to_array(self,File, **kwargs):
 		'''Converts video into an nd-array using ffmpeg-python module.
 		----
@@ -153,7 +147,7 @@ class stacker(object):
 			width = int(video_info['width'])
 			height = int(video_info['height'])
 		except:
-			print('!! Could not read in video file metadata') ## Delete
+			exit('EROR: Could not read in video file metadata') ## Delete
 
 		## Converting video to nd-array    
 		try:
@@ -164,11 +158,14 @@ class stacker(object):
 			n_frames = int(len(out)/height/width/3)
 			image_stack = np.frombuffer(out, np.uint8).reshape([-1, height, width, 3])
 		except:
-			print('!! Could not read in video file to an array. Error message (if any):', err) ## Delete
+			exit('ERROR: Could not read in video file to an array. Error message (if any):', err) ## Delete
+
+		## Check number of channels in video is correct
+		if image_stack.shape[3] not in [1,3]:
+			exit('ERROR: incorrect number of channels at %s. Requires a one or three channel image' % video_array.shape[3])
 
 		return image_stack
-
-
+		
 	def get_interval(self, stack, n=1):
 		'''Selects a stack of frames spaced some interval (n) apart
 		----
@@ -179,55 +176,36 @@ class stacker(object):
 		Returns:
 		stack (ndarray): numpy array of images, but only includes every n-th frame
 		'''
-		print('3 | 6 : Slicing by designated interval {}'.format(n))
+		print('3 | 6 : Slicing by designated interval: {}'.format(n))
 		return stack[::n]
 
 
-	def crop_and_grayscale(self, video_array,
-						 x = 0 ,x_max = None,
-						 y = 0 ,y_max = None,
-						 first_frame = None,
-						 last_frame = None,
-						 grayscale = False):
-		'''Crops imported video array to region of interest and converts it to grayscale
+	def crop_and_grayscale(self, video_array, grayscale = False):
+		'''Converts three-channel input to grayscale
 		----
 		Inputs:
 		  video_array (nd-array): image_stack generated from video_to_array function
-		  x (int): left-most x-position
-		  x_max (int): right-most x-position
-		  y (int): lowest y-position
-		  y_max (int): highest y-position
-		  first_frame (int): first frame to include
-		  last_frame (int): last frame to include
 		  grayscale (bool): True to convert to gray, False to leave in color. 
 		----
 		Returns:
 		  clean_stack (nd-array): Cropped and grayscaled (if indicated) video as nd-array'''
-		print('4 | 6 : Cropping frames and converting to grayscale')
-		## Conditionals for cropping frames and video length
-		if first_frame == None: first_frame = 0
-		if last_frame == None: last_frame = video_array.shape[0]
-		if y_max == None: y_max = video_array.shape[1]
-		if x_max == None: x_max = video_array.shape[2]
+		print('4 | 6 : Converting to grayscale:',self.grayscale)
 
 		## Setting only frames and ROI to grayscale
 		if grayscale:
-			ch_1 = 0.2989 * video_array[first_frame:last_frame,y : y_max,x : x_max,0]
-			ch_2 = 0.5870 * video_array[first_frame:last_frame,y : y_max,x : x_max,1]
-			ch_3 = 0.1140 * video_array[first_frame:last_frame,y : y_max,x : x_max,2]
-			clean_stack = ch_1.astype(float) + ch_2.astype(float) + ch_3.astype(float)
-
-		## Only cropping, no grayscaling
-		else:
-			clean_stack = video_array[first_frame:last_frame,y : y_max,x : x_max,:]
-		return clean_stack
+			ch_1 = 0.2989 * video_array[:,:,:,0]
+			ch_2 = 0.5870 * video_array[:,:,:,1]
+			ch_3 = 0.1140 * video_array[:,:,:,2]
+			video_array = ch_1.astype(float) + ch_2.astype(float) + ch_3.astype(float)
+		return video_array
 
 
-	def z_stack(self, stack, method = 'min'):
+	def flatten_stack(self, stack, method = 'min'):
 		'''Create a z-stack from stack provided
 		----
 		Input:
 		stack (ndarray): numpy array of images
+		method (str): Options for how nd-array is collapsed. 'min' is better for light background and dark background; 'max' is the opposite.
 		----
 		Returns:
 		stack (ndarray): '''
@@ -239,7 +217,18 @@ class stacker(object):
 		return stack
 
 	def visualize_stack(self, stack, save_file, dpi = 100):
-		print('6 | 6 : Visualizing z-stack')
+		'''Create time-stack image
+		----
+		Input:
+		stack (array): Flattened array of selected images
+		save_file (str): Path to save final output
+		dpi (int): Image resolution in drops per inch (dpi)
+		----
+		Output:
+		None, but image is automatically saved to --output_file path
+		'''
+		
+		print('6 | 6 : Visualizing time stack')
 		imshow(stack,cmap=cm.gray)
 		axis('off')
 		tight_layout()
@@ -255,26 +244,27 @@ def main():
 	arg = define_argument_parser()
 	check_args(arg)
 
-	zs = stacker(arg)
+	ts = stacker(arg)
 	## Read input file into an nd-array
-	stack = zs.video_to_array(zs.filename,loglevel='panic')
+	stack = ts.video_to_array(ts.filename,loglevel='panic')
 	# stack.shape
 
 	## Slice nd-array by interval
-	stack = zs.get_interval(stack,zs.interval)
+	stack = ts.get_interval(stack,ts.interval)
 	# short_stack.shape
 
 	## Convert nd-array to grayscale
-	stack = zs.crop_and_grayscale(stack, grayscale = zs.grayscale)
+	stack = ts.crop_and_grayscale(stack, grayscale = ts.grayscale)
 	# short_stack_gray.shape
 
 	## Flatten nd-array to array
-	stack = zs.z_stack(stack, method = zs.method)
+	stack = ts.flatten_stack(stack, method = ts.method)
 	# z_short_stack_gray.shape
 
 	## Create visualization
-	zs.visualize_stack(stack, save_file=zs.save_file, dpi = zs.dpi)
+	ts.visualize_stack(stack, 
+						save_file=ts.save_file, 
+						dpi = ts.dpi)
 
 if __name__ == '__main__':
 	main()
-	exit()
