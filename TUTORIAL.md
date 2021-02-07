@@ -16,15 +16,15 @@ After following the installation instructions on README.md, navigate to the `tim
 
 <p align="center">
 <img src="https://github.com/adamspierer/time_stacker/blob/main/example/drosophila.gif" width="256" height="192">
-Time stack of flies dropping into a flight column
 </p>
+
 
 Call the script, followed by flags and paths for the input and output files:
 
 	python ./script/time_stacker.py --input_file ./example/drosophila.mov --output_file ./output/drosophila_basic.png
 
 <p align="center">
-<img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila\_basic.png" width="256" height="192">
+<img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila_basic.png" width="256" height="192">
 Time stack of flies dropping into a flight column
 </p>
 
@@ -33,7 +33,7 @@ Call the script, followed by flags and paths for the input and output files:
 	python ./script/time_stacker.py --input_file ./example/drosophila.mov --output_file ./output/drosophila\_interval\_10.png --interval 10
 
 <p align="center">
-<img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila\_interval\_10.png" width="256" height="192">
+<img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila_interval_10.png" width="256" height="192">
 Time stack of flies dropping into a flight column
 </p>
 
