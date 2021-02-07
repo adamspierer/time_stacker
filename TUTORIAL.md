@@ -34,10 +34,6 @@ After following the installation instructions on README.md, navigate to the `tim
 
 <p align="center">
 <img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila_interval_10.png" width="256" height="192">
-<<<<<<< HEAD
-Time stack of flies dropping into a flight column
-=======
->>>>>>> main
 </p>
 
 
@@ -46,12 +42,8 @@ Time stack of flies dropping into a flight column
 	python ./script/time_stacker.py --input_file ./example/drosophila.mov --output_file ./output/drosophila_interval_10_grayscale.png --interval 10 --grayscale
 
 <p align="center">
-<<<<<<< HEAD
 <img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila_interval_10_grayscale.png" width="256" height="192">
 Time stack of flies dropping into a flight column
-=======
-<img src="https://github.com/adamspierer/time_stacker/blob/main/output/drosophila\_interval\_10\_grayscale.png" width="256" height="192">
->>>>>>> main
 </p>
 
 
