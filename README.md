@@ -4,11 +4,11 @@
 
 `time_stacker` creates a time-stack image show from a video or animated gif. This type of picture is best used to showcase the passage of time where the background is static and the focal object moves in a non-overlapping trajectory (e.g. ball bouncing down a hallway).
 
-![Alt Text](https://github.com/adamspierer/time_stacker/blob/dev/outputs/flight_example.png)
+![Alt Text](https://github.com/adamspierer/time_stacker/blob/main/outputs/flight_example.png)
 
 <h3>Motivation</h3>
 
-This program was designed to fill the void of Python-based programs that can generate a time-stack image, as well as address a personal issue I encountered trying to create time-stack images with a subset of images/frames in a video.
+This program was designed to fill the void of Python-based programs that can generate a time-stack image, as well as address a personal issue I encountered trying to create time-stack images with a subset of images/frames in a video for a publication. May my effort save you time.
 
 <h3>Requirements</h3>
 
@@ -33,9 +33,11 @@ Python modules:
 
 NOTE: time_stacker is tested in a Python3.6 virtual environment. Other programs have experienced difficulty with the `ffmpeg` in later Python versions, but may work.
 
+NOTE: These are the package versions I know work, though future versions should work as well.
+
 <h3>Installing</h3>
 
-We recommend running this package in an Anaconda-based virtual environment. Anaconda can be downloaded [here](https://docs.anaconda.com/anaconda/install/).
+I recommend running this package in an Anaconda-based virtual environment. Anaconda can be downloaded [here](https://docs.anaconda.com/anaconda/install/).
 
 **Make sure `conda` is installed** (should return something like `conda 4.7.11`):
 
@@ -67,7 +69,7 @@ For more details about creating a conda virtual environment, see [here](https://
 **Cloning the git repository**:
 
 	cd <folder of interest>
-	git clone https://github.com/adamspierer/time_stacker_.git
+	git clone https://github.com/adamspierer/time_stacker.git
 	
 NOTE: As of now, the platform itself is <u>not</u> callable as a module and these steps merely download the dependencies. The script files must be directly referenced when running the program. See our [tutorial](https://github.com/adamspierer/time_stacker/blob/master/TUTORIAL.md) for usage instructions.
 
@@ -84,20 +86,20 @@ NOTE: As of now, the platform itself is <u>not</u> callable as a module and thes
 
 The following is a general overview of the program's usage. For detailed instructions, please see our [tutorial page](https://github.com/adamspierer/time_stacker/blob/master/TUTORIAL.md).
 
-Make sure the z\_stacker scripts are downloaded and in a folder on your computer. Navigate to the `z\_stacker` directory and type:
+Make sure the time\_stacker scripts are downloaded and in a folder on your computer. Navigate to the `time\_stacker` directory and type:
 
 	cd <path_to_time_stacker>
 
 Type and run (placeholder to generate the current `./outputs/test.tiff` file):
 
-	python ./scripts/create_zstack.py --input_file ./examples/drosophila.mov --output_file ./outputs/test.tiff --method min --interval 20
+	python ./scripts/time_stacker.py --input_file ./examples/drosophila.mov --output_file ./outputs/test.tiff --method min --interval 20
 
 
 <h3>Code Structure/Overview</h3>
 
-`create_zstack.py` - Creates a z-stack from a video
+`time_stacker.py` - Creates a time-stack photo from a video or animated gif
 
-We encourage you to to visit our [Tutorial page]('https://github.com/adamspierer/z_stack_/blob/master/TUTORIAL.md') for a more thorough walk-through, description, and various caveats.
+We encourage you to to visit our [Tutorial page]('https://github.com/adamspierer/time_stack/blob/master/TUTORIAL.md') for a more thorough walk-through, description, and various caveats.
 
 <h3>Version releases</h3>
 
@@ -109,15 +111,15 @@ This software has only been tested on a Mac OS X (Sierra 10.15.7) but is likely 
 
 <h3>Contributing</h3>
 
-Contributors can fork from the repository and submit a pull request when modifications are ready. Please document the changes you made and any pertinent information that will help in our review of the changes.
+Contributors can fork from the repository and submit a pull request when modifications are ready. Please document the changes you made and any pertinent information that will help in the review of changes.
 
 <h3>Release History</h3>
 
-We plan to release maintenance updates as needed, though we are unlikely to modify the platform's main functionality.
+I plan to release maintenance updates as needed, though am unlikely to modify the platform's main functionality.
 
 <h3>Citing this work</h3>
 
-This work is not affiliated with a publication, though the script was written for figure generation in the following [manuscript](https://doi.org/10.1101/2020.05.27.118604)
+This script was written for generating figures for the following [manuscript](https://doi.org/10.1101/2020.05.27.118604)
 
 <h3>License</h3>
 
