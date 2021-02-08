@@ -227,7 +227,6 @@ class stacker(object):
 		Output:
 		None, but image is automatically saved to --output_file path
 		'''
-		
 		print('6 | 6 : Visualizing time stack')
 		imshow(stack,cmap=cm.gray)
 		axis('off')
@@ -237,6 +236,7 @@ class stacker(object):
 
 
 def main():
+	## Print startup text
 	startup()
 
 	## Get arguments
